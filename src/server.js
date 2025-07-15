@@ -74,6 +74,23 @@ app.get('/api/products', (req, res) => {  // This is the about route
     return res.status(200).send(products);                        
 }); 
 
+app.get('/api/products/:id',(req,res)=>{
+    const productId = parseInt(req.params.id);
+    const   products = [
+        { id: 1, name: 'Product 1', price: 100 },
+        { id: 2, name: 'Product 2', price: 200 },
+        { id: 3, name: 'Product 3', price: 300 },
+        { id: 4, name: 'Product 4', price: 400 },
+        { id: 5, name: 'Product 5', price: 500 },
+    ];// Extracting the product ID from the request parameters
+
+    const product = products.find(p => p.id === productId);
+    if (!product) {     
+        return res.status(404).json({ error: 'Product not found' });
+    }               
+    return res.status(200).json(product);
+})
+
 app.listen(PORT, (error) => {  
     if (error) {
         return console.error(`Error starting server: ${error}`);
