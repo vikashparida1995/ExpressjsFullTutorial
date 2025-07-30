@@ -26,7 +26,7 @@ const   products = [
         { id: 13, name: 'Jack Pink' },
         { id: 14, name: 'Kathy Gray' },
         { id: 15, name: 'Liam Cyan' },
-        { id: 16, name: 'Aachal parida'},
+        { id: 16, name: 'Aachal vikash parida'},
 
     ];
 app.get('/', (req, res) => {  // This is the root route 
