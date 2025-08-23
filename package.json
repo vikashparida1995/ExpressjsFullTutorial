@@ -19,7 +19,13 @@
   },
   "homepage": "https://github.com/vikashparida1995/ExpressjsFullTutorial#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "cookie-session": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "passport": "^0.5.3",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
