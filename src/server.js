@@ -76,7 +76,7 @@ passport.use(new Strategy(AUTH_OPTION, verifyCallback));
 
 
 passport.serializeUser((user,done)=>{
-  done(null,user)
+  done(null,user.id)
 })
 
 
@@ -89,9 +89,7 @@ app.use(passport.session());
 
 
 function checkLoginIn(req, res, next) {
-  let reqUser = req.user
-  console.log(reqUser)
-  let isLoggedIn = true;
+  let isLoggedIn = req.isAuthenticated() && req.user
   if (!isLoggedIn) {
     return res.status(401).json({
       error: "You must log in !",
@@ -128,7 +126,9 @@ app.get("/failure", (req, res) => {
 
 
 app.get("/auth/logout", (req, res) => {
-  return res.end("logout");
+   req.logOut();
+   return res.redirect('/')
+  
 });
 
 
